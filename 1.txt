@@ -1,0 +1,52 @@
+from Header import *
+
+class Provider:
+    def __init__(self, raw="NO NAME", count_raw=0, prise_raw=0):
+        self.raw = raw
+        self.count_raw = count_raw
+        self.prise_raw = prise_raw
+
+    def get_Raw(self):
+        return self.raw
+
+    def get_count_raw(self):
+        return self.count_raw
+
+    def get_prise_raw(self):
+        return self.prise_raw
+
+    def set_raw(self, Raw):
+        self.raw = Raw
+
+    def set_count_raw(self, Count_Raw):
+        self.count_raw = Count_Raw
+
+    def set_Prise_raw(self, Prise_Raw):
+        self.prise_raw = Prise_Raw
+
+class ListProvider:
+    def __init__(self):
+        self.head = None
+
+    def addProvider(self, p):
+        new_node = {'data': p, 'next': None}
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+            while current['next'] is not None:
+                current = current['next']
+            current['next'] = new_node
+
+    def printList(self):
+        current = self.head
+        while current is not None:
+            print(f"Raw: {current['data'].get_Raw()}, CountRaw: {current['data'].get_count_raw()}, PriceRaw: {current['data'].get_prise_raw()}")
+            current = current['next']
+
+class Plant:
+    def __init__(self, prise=0, time=0, name_raw="NO NAME", name_plant="NO NAME"):
+        self.prise = prise
+        self.time = time
+        self.name_raw = name_raw
+        self.name_plant = name_plant

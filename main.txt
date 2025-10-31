@@ -1,0 +1,41 @@
+from Header import *
+
+myProducer = Producer("My Producer", "My Drug")
+
+raw1 = Provider("Raw Material 1")
+raw2 = Provider("Raw Material 2")
+LProvider = ListProvider()
+LProvider.addProvider(raw1)
+LProvider.addProvider(raw2)
+
+myProducer.set_raw(LProvider)
+
+myPlant = Plant(1000, 10, "Raw Material 1", "My Plant")
+myProducer.set_name_plant(myPlant)
+
+print("Producer Name:", myProducer.get_name_producer())
+print("Drug Name:", myProducer.get_name_drug())
+print("Raw Materials:")
+pf = myProducer.get_raw
+pf().printList()
+
+myProducer.get_raw().printList()
+print("Plant Name:", myProducer.get_name_plant().get_name_plant())
+print("Plant Price:", myProducer.get_name_plant().get_prise())
+print("Plant Time:", myProducer.get_name_plant().get_time())
+print("Plant Raw Material:", myProducer.get_name_plant().get_name_raw())
+
+print("\n")
+
+myProducer1 = myProducer
+print("Producer Name:", myProducer1.get_name_producer())
+print("Drug Name:", myProducer1.get_name_drug())
+print("Raw Materials:")
+myProducer1.get_raw().printList()
+
+print("\n")
+myProducer1.get_raw().printList()
+print("Plant Name:", myProducer1.get_name_plant().get_name_plant())
+print("Plant Price:", myProducer1.get_name_plant().get_prise())
+print("Plant Time:", myProducer1.get_name_plant().get_time())
+print("Plant Raw Material:", myProducer1.get_name_plant().get_name_raw())
